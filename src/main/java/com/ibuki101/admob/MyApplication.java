@@ -9,15 +9,20 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class MyApplication extends Application {
-	  @Override
-	    public void start(Stage stage) {
-	        Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
-	        Scene scene = new Scene(new StackPane(new Label("Hello World!")),
-	                bounds.getWidth(), bounds.getHeight());
-	        stage.setScene(scene);
-	        stage.show();
-	    }
-	  public static void main(String[] args) {
+
+	@Override
+	public void start(Stage stage) {
+		Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
+		Scene scene = new Scene(new StackPane(new Label(getMessage())), bounds.getWidth(), bounds.getHeight());
+		stage.setScene(scene);
+		stage.show();
+	}
+
+	public String getMessage(){
+		return "Hello World!";
+	}
+
+	public static void main(String[] args) {
 		launch(args);
 	}
 }
