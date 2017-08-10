@@ -25,9 +25,13 @@ public class MyApplication extends Application {
 		stage.setScene(scene);
 		stage.show();
 
-		IPlatformProvider provider = PlatformService.getInstance().getProvider();
-		IAdViewService adViewService = provider.getAdviewService();
-		adViewService.displayAdUnit(true, message);
+		try{
+			IPlatformProvider provider = PlatformService.getInstance().getProvider();
+			IAdViewService adViewService = provider.getAdviewService();
+			adViewService.displayAdUnit(true, message);
+		} catch (Exception ex){
+			message.set("Exception: " + ex.getMessage());
+		}
 	}
 
 	public String getMessage(){
