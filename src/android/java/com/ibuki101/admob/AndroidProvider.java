@@ -10,6 +10,7 @@ package com.ibuki101.admob;
  */
 public class AndroidProvider implements IPlatformProvider{
 
+	/** 広告ユニット ID	*/
 	private static final String UNIT_ID = "ca-app-pub-2831580726446381/5811937726";
 
 	@Override
