@@ -1,5 +1,6 @@
 package com.ibuki101.admob;
 
+import javafx.beans.property.StringProperty;
 
 public interface IAdViewService {
 	/**
@@ -12,7 +13,7 @@ public interface IAdViewService {
 	 * 広告を表示する
 	 * @param test テストモードか
 	 */
-	void displayAdUnit(boolean test);
+	void displayAdUnit(boolean test, StringProperty property);
 
 	void resume();
 

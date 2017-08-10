@@ -10,7 +10,7 @@ public class MyApplicationTest {
 	@Test
 	public void getMessage() {
 		MyApplication target = new MyApplication();
-		assertThat(target.getMessage(), is("Hello World!"));
+		assertThat(target.getMessage(), is("admob was not loaded"));
 	}
 
 }

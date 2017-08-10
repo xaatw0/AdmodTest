@@ -1,6 +1,9 @@
 package com.ibuki101.admob;
 
+
 import javafx.application.Application;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -12,14 +15,23 @@ public class MyApplication extends Application {
 
 	@Override
 	public void start(Stage stage) {
+
+		StringProperty message = new SimpleStringProperty(getMessage());
+		Label label = new Label();
+		label.textProperty().bind(message);
+
 		Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
-		Scene scene = new Scene(new StackPane(new Label(getMessage())), bounds.getWidth(), bounds.getHeight());
+		Scene scene = new Scene(new StackPane(label), bounds.getWidth(), bounds.getHeight());
 		stage.setScene(scene);
 		stage.show();
+
+		IPlatformProvider provider = PlatformService.getInstance().getProvider();
+		IAdViewService adViewService = provider.getAdviewService();
+		adViewService.displayAdUnit(true, message);
 	}
 
 	public String getMessage(){
-		return "Hello World!";
+		return "admob was not loaded";
 	}
 
 	public static void main(String[] args) {
